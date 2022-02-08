@@ -12,7 +12,7 @@ The provided user story was:
 
 > <span style="font-style:italic">AS A </span>
 > 
-> <span style="font-style:italic">I WANT </span
+> <span style="font-style:italic">I WANT </span>
 >
 > <span style="font-style:italic">SO THAT </span>
 
