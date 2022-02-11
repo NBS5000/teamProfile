@@ -1,8 +1,8 @@
-## xxxx xxxx - Steve Barry
+## Team Profile CLI - Steve Barry
 
 ## <span style="color:green"> The Task</span>
 
-The task was to 
+The task was to build a Node.js command-line application that takes in information about employees on a software engineering team, then generate an HTML webpage that displays summaries for each person. Additionally, the module must include a unit test for every part of your code and ensure that it passes each test. 
 
 ### ⭐ ⭐ S.T.A.R. ⭐ ⭐
 
@@ -10,15 +10,15 @@ The task was to
 
 The provided user story was: 
 
-> <span style="font-style:italic">AS A </span>
+> <span style="font-style:italic">AS A manager</span>
 > 
-> <span style="font-style:italic">I WANT </span>
+> <span style="font-style:italic">I WANT to generate a webpage that displays my team's basic info</span>
 >
-> <span style="font-style:italic">SO THAT </span>
+> <span style="font-style:italic">SO THAT I have quick access to their emails and GitHub profiles</span>
 
 **TASK**
 
-Provide a solution that 
+Provide a CLI solution that allows a manager to create an HTML webpage with basic information for their team, including email & Github links.
 
 **ACTION**
 
@@ -47,19 +47,27 @@ Writing of a solution to resolve the situation, including:
 
 The end code is stored on Github, and publicly available and viewable. This result meets all requirements of the User Story and acceptance criteria:
 
-* ~~GIVEN I am taking a code quiz~~
-* ~~WHEN I click the start button~~
-* ~~THEN a timer starts and I am presented with a question~~
+* ~~GIVEN a command-line application that accepts user input~~
+* ~~WHEN I am prompted for my team members and their information~~
+* ~~THEN an HTML file is generated that displays a nicely formatted team roster based on user input~~
+* ~~WHEN I click on an email address in the HTML~~
+* ~~THEN my default email program opens and populates the TO field of the email with the address~~
+* ~~WHEN I click on the GitHub username~~
+* ~~THEN that GitHub profile opens in a new tab~~
+* ~~WHEN I start the application~~
+* ~~THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number~~
+* ~~WHEN I enter the team manager’s name, employee ID, email address, and office number~~
+* ~~THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team~~
+* ~~WHEN I select the engineer option~~
+* ~~THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu~~
+* ~~WHEN I select the intern option~~
+* ~~THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu~~
+* ~~WHEN I decide to finish building my team~~
+* ~~THEN I exit the application, and the HTML is generated~~
 
 ## <span style="color:green"> The Outcome</span>
 
 As the acceptance criteria has been met and exceeded, the task is now complete. 
-
-> There is a new Google feature named FLoc that is generating the below error. This is not a result of the performance or design of the site.
-> 
-> ![Screenshot of Google FLoC error](./assets/images/floc.PNG "Screenshot of Google FLoC error")
-> 
-> [Google FLoC](https://techcrunch.com/2021/03/30/google-starts-trialling-its-floc-cookie-alternative-in-chrome/)
 
 You can view the finished product [HERE](https://nbs5000.github.io/quizTime/)
 
@@ -68,6 +76,6 @@ Alternatively, here is a screenshot:
 > ![Screenshot of Quiz Time page](./assets/images/screen.png "Screenshot of Quiz Time page")
 
 ---
-<p style="text-align:center;">Written by <span style="font-style:italic">Steve Barry</span> - Due date 23/12/2021</p>
+<p style="text-align:center;">Written by <span style="font-style:italic">Steve Barry</span> - Due date 14/02/2022</p>
 
 <p style="text-align:center;">© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.</p>

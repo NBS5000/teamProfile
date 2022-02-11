@@ -40,7 +40,7 @@ const questions = () => {
     },
     {
         type: "input",
-        message: " \nWhich office are you based in?\n",
+        message: " \nWhat is your office number?\n",
         name: "office",
         validate(answer) {
             if(!answer) {
@@ -163,8 +163,8 @@ htmlStart =
                         <td class="tdRight"><a href="mailto:${staffList[0].email}">${staffList[0].email}</a></td>
                     </tr>
                     <tr>
-                        <td id="bl" class="tdLeft">Office</td>
-                        <td id="br" class="tdRight">${staffList[0].office}</td>
+                        <td id="bl" class="tdLeft">Office Number</td>
+                        <td id="br" class="tdRight">${staffList[0].officeNumber}</td>
                     </tr>
                 </table>
             </div>
