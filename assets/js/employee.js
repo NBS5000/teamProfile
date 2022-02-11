@@ -24,5 +24,6 @@ class Employee {
         console.log("My role is " + this.role)
         return this.role;
     }
-
 }
+
+module.exports = Employee;

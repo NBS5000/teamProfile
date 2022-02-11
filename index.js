@@ -3,9 +3,10 @@ const fs = require("fs");
 const Engineer = require("./assets/js/engineer");
 const Intern = require("./assets/js/intern");
 const fileName = "team.html";
-let htmlStart, htmlMiddle, htmlEnd,htmlFile;
+let htmlStart, htmlMiddle, htmlFile;
 let addMore = true;
 let staffList = [];
+const htmlEnd = `</div><footer></footer></body></html>`;
 
 
 
@@ -218,17 +219,8 @@ insert =
 
 }
 
-async function htmlEndBuild(){
+async function htmlBuild(){
 
-    htmlEnd =
-    `
-    </div>
-    <footer>
-            
-    </footer>
-</body>
-</html>
-    `;
 
     // htmlFile = htmlStart + htmlMiddle + htmlEnd;
 
@@ -245,16 +237,19 @@ function managerStart(){
 async function addStaff(){
     while(addMore){    
         const answers = await addStaffQ();
+        let x;
         // buildHtmlStaff(answers)
         if(answers.empType == "Engineer"){
-            let x = new Engineer(answers.empName, answers.empEmail, answers.git);
+            x = new Engineer(answers.empName, answers.empEmail, answers.git);
         }else{
-            let x = new Intern(answers.empName, answers.empEmail, answers.git);
+            x = new Intern(answers.empName, answers.empEmail, answers.school);
         }
         staffList.push(x);
         console.log(x);
         addMore = answers.addMoreQ;
     }
+
+    console.log(staffList);
 }
 
 
