@@ -4,7 +4,8 @@ const Engineer = require("./assets/js/engineer");
 const Intern = require("./assets/js/intern");
 const Manager = require("./assets/js/manager");
 const fileName = "team.html";
-let htmlStart, htmlMiddle, htmlFile;
+let htmlStart, htmlFile;
+let htmlMiddle = "";
 let addMore = true;
 let staffList = [];
 const htmlEnd = `</div><footer></footer></body></html>`;
@@ -141,7 +142,7 @@ htmlStart =
 </head>
 <body>
     <header>
-        <h1>My Team</h1>
+        <h1>${staffList[0].name}'s Team</h1>
     </header>
     <div id="mainContent">
 
@@ -155,11 +156,11 @@ htmlStart =
                 <table>
                     <tr>
                         <td id="tl" class="tdLeft">ID</td>
-                        <td id="tr" class="tdRight">555</td>
+                        <td id="tr" class="tdRight">${staffList[0].id}</td>
                     </tr>
                     <tr>
                         <td class="tdLeft">Email</td>
-                        <td class="tdRight">${staffList[0].email}</td>
+                        <td class="tdRight"><a href="mailto:${staffList[0].email}">${staffList[0].email}</a></td>
                     </tr>
                     <tr>
                         <td id="bl" class="tdLeft">Office</td>
@@ -174,6 +175,14 @@ htmlStart =
 }
 
 async function buildHtml(){
+
+    staffList = staffList.sort((a, b) => {
+        if(a.level < b.level) { return -1; }
+        if(a.level > b.level) { return  1; }
+        return 0;
+    });
+
+    
     let len = staffList.length;
     var loop = 1;
     while(loop < len){
@@ -182,7 +191,7 @@ async function buildHtml(){
         insert = 
 `<tr>
 <td id="bl" class="tdLeft">Github</td>
-<td id="br" class="tdRight">${staffList[loop].git}</td>
+<td id="br" class="tdRight"><a href="https://github.com/${staffList[loop].git}" target="_blank">${staffList[loop].git}</a></td>
 </tr>`;
     }else{
         insert = 
@@ -191,6 +200,7 @@ async function buildHtml(){
 <td id="br" class="tdRight">${staffList[loop].school}</td>
 </tr>`;
     }
+
     htmlMiddle = htmlMiddle +
 `
 <div class="person">
@@ -207,7 +217,7 @@ async function buildHtml(){
                     </tr>
                     <tr>
                         <td class="tdLeft">Email</td>
-                        <td class="tdRight">${staffList[loop].email}</td>
+                        <td class="tdRight"><a href="mailto:${staffList[loop].email}">${staffList[loop].email}</a></td>
                     </tr>
                     ${insert}
                 </table>
@@ -241,6 +251,8 @@ async function managerStart(){
 }
 
 async function addStaff(){
+
+
     while(addMore){    
         const answers = await addStaffQ();
         let x;

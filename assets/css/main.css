@@ -14,18 +14,20 @@ body{
     width: 80%;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
 }
 header{
     background-color: olivedrab;
-    height: 15%;
-    min-height: 100px;
+    height: 100px;
     color: white;
     font-size: 200%;
     text-align: center;
     margin-bottom:5%
 }
 h1{
-    padding-top: 3%;
+    padding-top: 30px;
 }
 .person{
     width:30%;
@@ -34,6 +36,7 @@ h1{
     text-align: center;
     border-radius:25px;
     min-width:195px;
+    margin: 0 10px 30px 10px;
 }
 .personHeader{
     background-color:cadetblue;
@@ -53,6 +56,9 @@ h3{
     margin: 0 auto;
     text-align: center;
     padding-top: 25px;
+}
+a{
+    text-decoration: none;
 }
 table{
     width: 100%;
