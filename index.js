@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require("fs");
 const Engineer = require("./assets/js/engineer");
 const Intern = require("./assets/js/intern");
+const Manager = require("./assets/js/manager");
 const fileName = "team.html";
 let htmlStart, htmlMiddle, htmlFile;
 let addMore = true;
@@ -17,7 +18,6 @@ const questions = () => {
         type: "input",
         message: "\n\x1b[4m\x1b[33m**Welcome to the NBS5000 Team System. If you require assistance with a question, simply press return/enter without any input**\x1b[0m \x1b[0m \n\nWhat is your name?\n",
         name: "manName",
-        //when: !questions.manName,
         validate(answer) {
             if(!answer) {
                 return "Please enter your name"
@@ -29,7 +29,6 @@ const questions = () => {
         type: "input",
         message: " \nWhat is your email address?\n",
         name: "manEmail",
-        //when: !questions.manEmail,
         validate: (answer) => {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
             if(!emailRegex.test(answer)) {
@@ -40,9 +39,8 @@ const questions = () => {
     },
     {
         type: "input",
-        message: " \nWhat is your office number?\n",
-        name: "manNum",
-        //when: !questions.manNum,
+        message: " \nWhich office are you based in?\n",
+        name: "office",
         validate(answer) {
             if(!answer) {
                 return "Your office number, what is it?"
@@ -63,7 +61,6 @@ const addStaffQ = () => {
             choices: [
                 "Engineer",
                 "Intern",
-                // "My Team is complete",
             ],
             name: 'empType',
         },
@@ -129,7 +126,7 @@ const addStaffQ = () => {
 ])};
 
 
-function buildHtmlStart(manName,manEmail,manNum){
+function buildHtmlStart(){
 htmlStart = 
 `<!DOCTYPE html>
 <html lang="en">
@@ -150,7 +147,7 @@ htmlStart =
 
     <div class="person">
         <div class="personHeader">
-            <h3>${manName}</h3>
+            <h3>${staffList[0].name}</h3>
             <h3>Manager</h3>
         </div>
         <div class="personBody">
@@ -162,11 +159,11 @@ htmlStart =
                     </tr>
                     <tr>
                         <td class="tdLeft">Email</td>
-                        <td class="tdRight">${manEmail}</td>
+                        <td class="tdRight">${staffList[0].email}</td>
                     </tr>
                     <tr>
-                        <td id="bl" class="tdLeft">Office Number</td>
-                        <td id="br" class="tdRight">${manNum}</td>
+                        <td id="bl" class="tdLeft">Office</td>
+                        <td id="br" class="tdRight">${staffList[0].office}</td>
                     </tr>
                 </table>
             </div>
@@ -176,38 +173,41 @@ htmlStart =
 `;
 }
 
-function buildHtmlStaff(empName,empEmail,git,school){
-    let insert;
-    if(git){
-insert = 
+async function buildHtml(){
+    let len = staffList.length;
+    var loop = 1;
+    while(loop < len){
+        let insert;
+        if(staffList[loop].git){
+        insert = 
 `<tr>
 <td id="bl" class="tdLeft">Github</td>
-<td id="br" class="tdRight">${git}</td>
+<td id="br" class="tdRight">${staffList[loop].git}</td>
 </tr>`;
     }else{
-insert = 
+        insert = 
 `<tr>
 <td id="bl" class="tdLeft">School</td>
-<td id="br" class="tdRight">${school}</td>
+<td id="br" class="tdRight">${staffList[loop].school}</td>
 </tr>`;
     }
     htmlMiddle = htmlMiddle +
 `
 <div class="person">
         <div class="personHeader">
-            <h3>${empName}</h3>
-            <h3>Manager</h3>
+            <h3>${staffList[loop].name}</h3>
+            <h3>${staffList[loop].role}</h3>
         </div>
         <div class="personBody">
             <div class="personDetails">
                 <table>
                     <tr>
                         <td id="tl" class="tdLeft">ID</td>
-                        <td id="tr" class="tdRight">555</td>
+                        <td id="tr" class="tdRight">${staffList[loop].id}</td>
                     </tr>
                     <tr>
                         <td class="tdLeft">Email</td>
-                        <td class="tdRight">${empEmail}</td>
+                        <td class="tdRight">${staffList[loop].email}</td>
                     </tr>
                     ${insert}
                 </table>
@@ -216,29 +216,34 @@ insert =
     </div>
 
 `;
+loop++;
+};
+    htmlFile = htmlStart + htmlMiddle + htmlEnd;
+
+    fs.writeFileSync(fileName, htmlFile);
 
 }
 
-async function htmlBuild(){
-
-
-    // htmlFile = htmlStart + htmlMiddle + htmlEnd;
-
-    // fs.writeFileSync(fileName, htmlFile);
+function newManager(answers){
+        let m = new Manager(answers.manName, answers.manEmail, answers.office);
+        staffList.push(m);
+        console.log(m);
+        buildHtmlStart();
 }
 
-function managerStart(){
-    return questions()
-    .then((answers)=>buildHtmlStart(answers))
-    .catch((err) =>
-    err ? console.log(err) : console.log('Huzzah!') )
+async function managerStart(){
+
+    const mAnswers = await questions();
+
+    newManager(mAnswers);
+
 
 }
+
 async function addStaff(){
     while(addMore){    
         const answers = await addStaffQ();
         let x;
-        // buildHtmlStaff(answers)
         if(answers.empType == "Engineer"){
             x = new Engineer(answers.empName, answers.empEmail, answers.git);
         }else{
@@ -258,7 +263,7 @@ async function init(){
 
     await addStaff();
 
-    htmlEndBuild();
+    buildHtml();
 }
 
 init();
