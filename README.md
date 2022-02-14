@@ -76,6 +76,10 @@ As the acceptance criteria has been met and exceeded, the task is now complete.
 
 You can view the Github repo here [HERE](https://github.com/NBS5000/teamProfile/)
 
+The link to view the tests being run is [HERE](https://watch.screencastify.com/v/SC0GixyMuqGo2zw5f6fq)
+
+The link to view the CLI application being run is [HERE](https://watch.screencastify.com/v/00js9XGYIxH9jJgfWWBa)
+
 Alternatively, here is a screenshot:
 
 > ![Screenshot of Team Profile CLI](./assets/images/screen.png "Screenshot of Team Profile CLI")
