@@ -14,6 +14,7 @@ const htmlEnd = `</div><footer></footer></body></html>`;
 
 
 const questions = () => {
+    // Initial questions for Manager to answer
     return inquirer.prompt([
     {
         type: "input",
@@ -191,16 +192,16 @@ async function buildHtml(){
         let insert;
         if(staffList[loop].git){
         insert = 
-`<tr>
-<td id="bl" class="tdLeft">Github</td>
-<td id="br" class="tdRight"><a href="https://github.com/${staffList[loop].git}" target="_blank">${staffList[loop].git}</a></td>
-</tr>`;
+    `               <tr>
+                        <td id="bl" class="tdLeft">Github</td>
+                        <td id="br" class="tdRight"><a href="https://github.com/${staffList[loop].git}" target="_blank">${staffList[loop].git}</a></td>
+                    </tr>`;
     }else{
         insert = 
-`<tr>
-<td id="bl" class="tdLeft">School</td>
-<td id="br" class="tdRight">${staffList[loop].school}</td>
-</tr>`;
+    `               <tr>
+                        <td id="bl" class="tdLeft">School</td>
+                        <td id="br" class="tdRight">${staffList[loop].school}</td>
+                    </tr>`;
     }
 
     let img;
@@ -241,27 +242,22 @@ loop++;
     htmlFile = htmlStart + htmlMiddle + htmlEnd;
 
     fs.writeFileSync(fileName, htmlFile);
-
 }
 
 function newManager(answers){
         let m = new Manager(answers.manName, answers.manEmail, answers.office);
         staffList.push(m);
-        console.log(m);
         buildHtmlStart();
 }
 
 async function managerStart(){
 
     const mAnswers = await questions();
-
     newManager(mAnswers);
-
 
 }
 
 async function addStaff(){
-
 
     while(addMore){    
         const answers = await addStaffQ();
@@ -272,15 +268,13 @@ async function addStaff(){
             x = new Intern(answers.empName, answers.empEmail, answers.school);
         }
         staffList.push(x);
-        console.log(x);
         addMore = answers.addMoreQ;
     }
-
-    console.log(staffList);
 }
 
 
 async function init(){
+
     await managerStart();
 
     await addStaff();
