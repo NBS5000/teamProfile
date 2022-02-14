@@ -2,7 +2,7 @@
 
 ## <span style="color:green"> The Task</span>
 
-The task was to build a Node.js command-line application that takes in information about employees on a software engineering team, then generate an HTML webpage that displays summaries for each person. Additionally, the module must include a unit test for every part of your code and ensure that it passes each test. 
+The task was to build a Node.js command-line application that takes in information about employees on a software engineering team, then generate an HTML webpage that displays summaries for each person. Additionally, the module must include a unit test for every part of your code and ensure that it passes each test, these should be run by entering <span style="font-family: monospace, monospace;">npm run test</span>.
 
 ### ⭐ ⭐ S.T.A.R. ⭐ ⭐
 
@@ -64,16 +64,20 @@ The end code is stored on Github, and publicly available and viewable. This resu
 * ~~THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu~~
 * ~~WHEN I decide to finish building my team~~
 * ~~THEN I exit the application, and the HTML is generated~~
+* ~~WHEN I run <span style="font-family: monospace, monospace;">npm run test</span>~~
+* ~~THEN Jest will be used to run a suite of tests on each module of the application~~
+* ~~WHEN the suite of tests are run~~
+* ~~THEN there are no fails or errors~~
 
 ## <span style="color:green"> The Outcome</span>
 
 As the acceptance criteria has been met and exceeded, the task is now complete. 
 
-You can view the finished product [HERE](https://nbs5000.github.io/quizTime/)
+You can view the Github repo here [HERE](https://github.com/NBS5000/teamProfile/)
 
 Alternatively, here is a screenshot:
 
-> ![Screenshot of Quiz Time page](./assets/images/screen.png "Screenshot of Quiz Time page")
+> ![Screenshot of Team Profile CLI](./assets/images/screen.png "Screenshot of Team Profile CLI")
 
 ---
 <p style="text-align:center;">Written by <span style="font-style:italic">Steve Barry</span> - Due date 14/02/2022</p>

@@ -192,13 +192,13 @@ async function buildHtml(){
         let insert;
         if(staffList[loop].git){
         insert = 
-    `               <tr>
+    `<tr>
                         <td id="bl" class="tdLeft">Github</td>
                         <td id="br" class="tdRight"><a href="https://github.com/${staffList[loop].git}" target="_blank">${staffList[loop].git}</a></td>
                     </tr>`;
     }else{
         insert = 
-    `               <tr>
+    `<tr>
                         <td id="bl" class="tdLeft">School</td>
                         <td id="br" class="tdRight">${staffList[loop].school}</td>
                     </tr>`;
