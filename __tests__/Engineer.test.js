@@ -1,6 +1,6 @@
 const Engineer = require("../assets/js/engineer");
 
-describe("Employee", () => {
+describe("Engineer", () => {
     describe("getGit", () => {
         it("should return the engineers Github name", () => {
             const emp = new Engineer("Darth Vader", "darth@empire.com", "sithLord");
