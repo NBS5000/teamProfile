@@ -30,8 +30,6 @@ Writing of a solution to resolve the situation, including:
   * *Improved code visualisation - eg: indentation*
   * *Error free loading*
   * *Favicon designed and added*
-  * *Thorough comments*
-  * *Intuitive design with messages to users*
 * Javascript
   * *Error free performance*
   * *Multiple functions to separate aspects of code*
@@ -40,8 +38,11 @@ Writing of a solution to resolve the situation, including:
   * *Numerous commits to track changes in code*
   * *Code added to public repository and Github Pages for public viewing*
 * Functionality
-  * *Feedback to the user as to how well they've done, with a Star Wars twist*
-  * *Hall of Fame to track the best scores, which can be cleared if desired*
+  * *Simple questions, with assistance to users if needed*
+  * *Looping of adding team members, and exiting when finished*
+  * *Team members reordered to seniority level: Manager > Engineer > Intern*
+  * *HTML generated*
+  * *Links connect to the email/Github addresses*
 
 **RESULT**
 
