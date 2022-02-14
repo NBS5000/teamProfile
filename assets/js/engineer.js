@@ -9,7 +9,12 @@ class Engineer extends Employee {
     }
 
     getGit(){
-        console.log(this.git);
+        // console.log("My Github account is: " + this.git);
+        return this.git;
+    }
+    getRole(){
+        // console.log("My role is: " + this.role);
+        return this.role;
     }
 }
 

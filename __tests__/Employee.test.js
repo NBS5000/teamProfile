@@ -30,25 +30,7 @@ describe("Employee", () => {
             const emp = new Employee("30", 3, "Mr Test Jr", "jrtest@test.com", "Intern");
             const role = emp.getRole();
 
-            expect(role).toBe("Intern");
+            expect(role).toBe("Employee");
         })
     });
 });
-
-
-// getName(){
-//     console.log("My name is " + this.name);
-//     return this.name;
-// }
-// getId(){
-//     console.log("My id is " + this.id);
-//     return this.id;
-// }
-// getEmail(){
-//     console.log("My email is " + this.email);
-//     return this.email;
-// }
-// getRole(){
-//     console.log("My role is " + this.role)
-//     return this.role;
-// }
