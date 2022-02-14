@@ -9,11 +9,12 @@ describe("Employee", () => {
             expect(name).toBe("sithLord");
         })
     });
+    describe("getRole", () => {
+        it("should return the employees role", () => {
+            const eng = new Engineer("R2-D2", "r2@d2.com", "astromech");
+            const role = eng.getRole();
+
+            expect(role).toBe("Engineer");
+        })
+    });
 });
-
-
-
-// constructor(name, email, git){
-//     let r = Math.floor(Math.random() * 100);
-//     let eId = "E-" + r;
-//     super(eId, 2, name, email, "Engineer");
