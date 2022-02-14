@@ -128,6 +128,7 @@ const addStaffQ = () => {
 
 
 function buildHtmlStart(){
+
 htmlStart = 
 `<!DOCTYPE html>
 <html lang="en">
@@ -148,6 +149,7 @@ htmlStart =
 
     <div class="person">
         <div class="personHeader">
+        <img class="personImg" src="./assets/images/manager.png" alt="Role Icon">
             <h3>${staffList[0].name}</h3>
             <h3>Manager</h3>
         </div>
@@ -163,7 +165,7 @@ htmlStart =
                         <td class="tdRight"><a href="mailto:${staffList[0].email}">${staffList[0].email}</a></td>
                     </tr>
                     <tr>
-                        <td id="bl" class="tdLeft">Office Number</td>
+                        <td id="bl" class="tdLeft">Office</td>
                         <td id="br" class="tdRight">${staffList[0].officeNumber}</td>
                     </tr>
                 </table>
@@ -201,10 +203,18 @@ async function buildHtml(){
 </tr>`;
     }
 
+    let img;
+    if(staffList[loop].role == "Engineer"){
+        img = "eng";
+    }else{
+        img = "intern";
+    }
+
     htmlMiddle = htmlMiddle +
 `
 <div class="person">
         <div class="personHeader">
+            <img class="personImg" src="./assets/images/${img}.png" alt="Role Icon">
             <h3>${staffList[loop].name}</h3>
             <h3>${staffList[loop].role}</h3>
         </div>

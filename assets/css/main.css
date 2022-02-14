@@ -42,6 +42,17 @@ h1{
     background-color:cadetblue;
     border-radius:25px 25px 0 0;color: white;
     height: 25%;
+    background-image: url("../assets/images/eng.png");
+    position: relative;
+}
+.personImg{
+    height:50px;
+    width: 50px;
+    background-image: url("../assets/images/eng.png");
+    visibility: visible;
+    position: absolute;
+    top: 7px;
+    left: 15px;
 }
 h3{
     padding-top:10px
